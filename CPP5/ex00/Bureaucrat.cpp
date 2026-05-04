@@ -1,7 +1,6 @@
 #include "Bureaucrat.hpp"
 
 #include <iostream>
-#include <stdexcept>
 
 Bureaucrat::Bureaucrat(): name("Default"), grade(150) {}
 Bureaucrat::Bureaucrat(const std::string& n) : name(n), grade(0) {}
