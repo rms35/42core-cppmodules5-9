@@ -23,7 +23,7 @@ class	Form
 		Form(const std::string &n, int gs, int ge);
 		Form(const Form& f);
 		Form&	operator=(const Form& f);
-		~Form();
+		~Form() = default;;
 
 		std::string getName() const;
 		int			getGradeSign() const;

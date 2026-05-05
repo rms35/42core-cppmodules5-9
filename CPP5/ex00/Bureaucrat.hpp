@@ -17,7 +17,7 @@ class	Bureaucrat
 		Bureaucrat(const std::string& n, int g);
 		Bureaucrat(const Bureaucrat& b);
 		Bureaucrat&	operator=(Bureaucrat const& b);
-		~Bureaucrat();
+		~Bureaucrat() = default;
 
 		std::string getName() const;
 		int			getGrade() const;

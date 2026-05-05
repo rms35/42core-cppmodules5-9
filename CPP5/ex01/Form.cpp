@@ -44,7 +44,8 @@ Form::Form(const Form& f) : name(f.getName()), isSigned(f.getIsSigned()),
 
 Form& Form::operator=(const Form& f)
 {
-	this->isSigned = f.isSigned;
+	if (this != &f)
+		this->isSigned = f.isSigned;
 	return (*this);
 }
 
