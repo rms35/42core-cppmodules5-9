@@ -4,13 +4,13 @@
 #include <iostream>
 
 ShrubberyCreationForm::ShrubberyCreationForm() :
-		AForm("ShrubberyCreationForm", 25, 5), target("Default") {}
+		AForm("ShrubberyCreationForm", "Default", 145, 137) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& t) :
-		AForm("ShrubberyCreationForm", 25, 5), target(t) {}
+		AForm("ShrubberyCreationForm", t, 145, 137) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& s) :
-		AForm(s), target(s.target) {}
+		AForm(s) {}
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=
 		(const ShrubberyCreationForm& s)
@@ -25,7 +25,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 		throw GradeTooLowException();
 	if (this->getIsSigned() == false)
 		throw FormNotSigned();
-	printTree(this->target);
+	printTree(this->getTarget());
 }
 
 void	ShrubberyCreationForm::printTree(const std::string &target)

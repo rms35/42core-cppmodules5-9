@@ -5,13 +5,13 @@
 #include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm() :
-		AForm("RobotomyRequestForm", 72, 45), target("Default") {}
+		AForm("RobotomyRequestForm", "Default", 72, 45) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& t) :
-		AForm("RobotomyRequestForm", 72, 45), target(t) {}
+		AForm("RobotomyRequestForm", t, 72, 45) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& s) :
-		AForm(s), target(s.target) {}
+		AForm(s) {}
 
 RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& s)
 {
@@ -35,8 +35,8 @@ void	RobotomyRequestForm::execute(Bureaucrat const& executor) const
 	for (int i = 0; i < 5; i++)
 		std::cout << "Drill!! Drill!!" << std::endl;
 	if (std::rand() % 2)
-		std::cout << this->target << " robotomy failed" << std::endl;
+		std::cout << this->getTarget() << " robotomy failed" << std::endl;
 	else
-		std::cout << this->target << " has been robotomized successfully"
+		std::cout << this->getTarget() << " has been robotomized successfully"
 				<< std::endl;
 }

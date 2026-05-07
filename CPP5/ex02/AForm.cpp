@@ -2,13 +2,13 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : name("Default"), isSigned(false), gradeSign(1),
+AForm::AForm() : name("Default"), target("Default"), isSigned(false), gradeSign(1),
 		gradeExec(1) {}
 
-AForm::AForm(const std::string& n) : name(n), isSigned(false), gradeSign(1),
+AForm::AForm(const std::string& n) : name(n), target("Default"), isSigned(false), gradeSign(1),
 		gradeExec(1) {}
 
-AForm::AForm(const int g) : name("Default"), isSigned(false), gradeSign(g),
+AForm::AForm(const int g) : name("Default"), target("Default"), isSigned(false), gradeSign(g),
 		gradeExec(g)
 {
 	if (g < 1)
@@ -17,8 +17,8 @@ AForm::AForm(const int g) : name("Default"), isSigned(false), gradeSign(g),
 		throw GradeTooLowException();
 }
 
-AForm::AForm(const std::string& n, const int g) : name(n),
-		isSigned(false), gradeSign(g), gradeExec(g)
+AForm::AForm(const std::string& n, const std::string& t, const int g) : name(n),
+		target(t), isSigned(false), gradeSign(g), gradeExec(g)
 {
 	if (g < 1)
 		throw GradeTooHighException();
@@ -26,8 +26,8 @@ AForm::AForm(const std::string& n, const int g) : name(n),
 		throw GradeTooLowException();
 }
 
-AForm::AForm(const std::string& n, const int gs, const int ge) : name(n),
-		isSigned(false), gradeSign(gs), gradeExec(ge)
+AForm::AForm(const std::string& n, const std::string& t, const int gs, const int ge) : name(n),
+		target(t), isSigned(false), gradeSign(gs), gradeExec(ge)
 {
 	if (gs < 1 || ge < 1)
 		throw GradeTooHighException();
@@ -35,7 +35,7 @@ AForm::AForm(const std::string& n, const int gs, const int ge) : name(n),
 		throw GradeTooLowException();
 }
 
-AForm::AForm(const AForm& f) : name(f.getName()), isSigned(f.getIsSigned()),
+AForm::AForm(const AForm& f) : name(f.getName()), target(f.getTarget()), isSigned(f.getIsSigned()),
 		gradeSign(f.getGradeSign()), gradeExec(f.getGradeExec()) {}
 
 AForm& AForm::operator=(const AForm& f)
@@ -57,6 +57,11 @@ void	AForm::beSigned(const Bureaucrat& b)
 std::string AForm::getName() const
 {
 	return (this->name);
+}
+
+std::string AForm::getTarget() const
+{
+	return (this->target);
 }
 
 int	AForm::getGradeSign() const

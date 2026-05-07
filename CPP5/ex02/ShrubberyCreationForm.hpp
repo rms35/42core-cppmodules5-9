@@ -8,7 +8,6 @@ class	ShrubberyCreationForm : public AForm
 {
 	private:
 		static void	printTree(const std::string& target) ;
-		const std::string target;
 	public:
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(const std::string& t);

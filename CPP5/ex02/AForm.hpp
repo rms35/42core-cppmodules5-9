@@ -1,6 +1,6 @@
 
-#ifndef EX01_FORM_HPP
-# define EX01_FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <string>
 # include <exception>
@@ -11,6 +11,7 @@ class	AForm
 {
 	private:
 		const std::string	name;
+		const std::string	target;
 		bool				isSigned;
 		const int			gradeSign;
 		const int			gradeExec;
@@ -19,14 +20,15 @@ class	AForm
 		AForm();
 		AForm(const std::string &n);
 		AForm(int g);
-		AForm(const std::string &n, int g);
-		AForm(const std::string &n, int gs, int ge);
+		AForm(const std::string &n, const std::string &t, int g);
+		AForm(const std::string &n, const std::string &t, int gs, int ge);
 		AForm(const AForm& f);
 		AForm&	operator=(const AForm& f);
 
 		virtual ~AForm();
 
 		std::string getName() const;
+		std::string getTarget() const;
 		int			getGradeSign() const;
 		int			getGradeExec() const;
 		bool		getIsSigned() const;
@@ -65,4 +67,4 @@ class	AForm
 
 std::ostream&	operator<<(std::ostream& os, AForm const& f);
 
-#endif //EX01_FORM_HPP
+#endif // AFORM_HPP

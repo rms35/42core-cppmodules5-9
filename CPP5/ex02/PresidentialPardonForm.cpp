@@ -4,13 +4,13 @@
 #include <iostream>
 
 PresidentialPardonForm::PresidentialPardonForm() :
-		AForm("PresidentialPardonForm", 145, 137), target("Default") {}
+		AForm("PresidentialPardonForm", "Default", 25, 5) {}
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string& t) :
-		AForm("PresidentialPardonForm", 145, 137), target(t) {}
+		AForm("PresidentialPardonForm", t, 25, 5) {}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& s) :
-		AForm(s), target(s.target) {}
+		AForm(s) {}
 
 PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& s)
 {
@@ -24,6 +24,6 @@ void	PresidentialPardonForm::execute(Bureaucrat const& executor) const
 		throw GradeTooLowException();
 	if (this->getIsSigned() == false)
 		throw FormNotSigned();
-	std::cout << this->target << " has been pardoned by Zaphod Beeblebrox" <<
+	std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox" <<
 		std::endl;
 }
