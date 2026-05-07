@@ -37,7 +37,7 @@ class	Form
 			public:
 				const char*	what() const throw()
 				{
-					return ("Form Grade Too High");
+					return ("Grade Too High");
 				}
 		};
 
@@ -46,7 +46,7 @@ class	Form
 		public:
 			const char*	what() const throw()
 			{
-				return ("Form Grade Too Low");
+				return ("Grade Too Low");
 			}
 		};
 };
