@@ -5,7 +5,7 @@ RM		= rm -f
 
 SRCS		= main.cpp
 OBJS		= $(SRCS:.cpp=.o)
-INC		= iter.hpp
+INC		= Iter.hpp
 
 all: $(NAME)
 
